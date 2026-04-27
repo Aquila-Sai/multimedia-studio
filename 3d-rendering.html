@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimedia Studio | 3D Rendering — Solar System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Floating Decorative Elements -->
+    <div class="floating-elements">
+        <div class="float-item">🌸</div>
+        <div class="float-item">✨</div>
+        <div class="float-item">🪐</div>
+        <div class="float-item">🌙</div>
+        <div class="float-item">⭐</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🎀</span>
+                <span class="logo-text">Multimedia Studio</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="3d-rendering.html" class="nav-link active">3D Rendering</a></li>
+                <li><a href="rotoscope.html" class="nav-link">Rotoscope</a></li>
+                <li><a href="about.html" class="nav-link">About Me</a></li>
+            </ul>
+            <button class="theme-toggle" id="theme-toggle" title="Toggle Light/Dark Mode">
+                <span class="theme-icon">🌙</span>
+            </button>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero hero-purple">
+        <div class="hero-content">
+            <div class="hero-badge">🪐 3D Project</div>
+            <h1 class="hero-title">SOLAR SYSTEM</h1>
+            <p class="hero-subtitle">A fully modelled and rendered Solar System built in Blender, featuring planetary materials, emission lighting, and space atmosphere.</p>
+            
+            <div class="hero-buttons">
+                <a href="#production" class="btn btn-primary">
+                    <span>📋</span> Production Breakdown
+                </a>
+                <a href="#encyclopedia" class="btn btn-secondary">
+                    <span>🌌</span> Explore Planets
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Navigation -->
+    <div class="quick-nav">
+        <div class="quick-nav-container">
+            <a href="#production" class="quick-nav-link">📋 Production Breakdown</a>
+            <a href="#tech" class="quick-nav-link">🖥️ Tech Info</a>
+            <a href="#notes" class="quick-nav-link">📝 Project Notes</a>
+            <a href="#encyclopedia" class="quick-nav-link">🌌 Interactive Hub</a>
+        </div>
+    </div>
+
+    <!-- Production Breakdown -->
+    <section id="production" class="section">
+        <div class="section-header">
+            <span class="section-badge">📋 Production</span>
+            <h2 class="section-title">How it was made — step by step</h2>
+            <p class="section-subtitle">A walkthrough of the full pipeline from scene setup to final render, done entirely in Blender using the Cycles render engine.</p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-number">01</div>
+                <div class="timeline-content">
+                    <h3>Scene Setup & Reference Gathering</h3>
+                    <p>Started by collecting NASA reference images of each planet — surface textures, color palettes, and size ratios. Set up a new Blender scene with a black HDRI background to simulate deep space.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-number">02</div>
+                <div class="timeline-content">
+                    <h3>Planet Modelling & Scaling</h3>
+                    <p>Each planet was created as a UV sphere. Scaled using approximate relative sizes (Jupiter ~11× Earth). Rings for Saturn were modelled as a torus and subdivided for smoothness.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-number">03</div>
+                <div class="timeline-content">
+                    <h3>UV Unwrapping & Texture Mapping</h3>
+                    <p>Applied spherical UV unwrap to each planet. Imported NASA texture maps (diffuse/albedo) and projected them using Blender's Image Texture node in the Shader Editor. Used a Mapping node to correct stretching at poles.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-number">04</div>
+                <div class="timeline-content">
+                    <h3>Materials & Shader Setup</h3>
+                    <p>Each planet used a Principled BSDF shader. The Sun used an Emission shader with an orange/yellow color ramp to simulate solar glow. Saturn's rings used a Transparent BSDF mixed with Principled for opacity control.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-number">05</div>
+                <div class="timeline-content">
+                    <h3>Lighting — The Sun as a Light Source</h3>
+                    <p>Placed a Point Light inside the Sun mesh with high intensity to cast realistic directional shadows on all planets. Added a small amount of ambient world light (0.05 strength) to keep dark sides slightly visible.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-number">06</div>
+                <div class="timeline-content">
+                    <h3>Camera Path & Animation</h3>
+                    <p>Created a Bezier curve as a camera path orbiting the Solar System. Used a Follow Path constraint on the camera. Each planet was keyframed rotating on its own axis at different speeds to match real orbital periods scaled down.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-number">07</div>
+                <div class="timeline-content">
+                    <h3>Star Field Background</h3>
+                    <p>Added a star field using a particle system on a large inverted sphere surrounding the scene. Stars used a point material with an Emission shader. Also tested Blender's World shader with a noise texture for an alternative procedural starfield.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-number">08</div>
+                <div class="timeline-content">
+                    <h3>Render Settings & GPU Configuration</h3>
+                    <p>Set Render Engine to Cycles. Enabled GPU Compute using the RTX 4050 (CUDA). Samples set to 256 for stills and 128 for animation frames. Enabled Denoising (OptiX) to clean up noise without raising sample count.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-number">09</div>
+                <div class="timeline-content">
+                    <h3>Post-Processing in Blender Compositor</h3>
+                    <p>Used Blender's built-in Compositor to add a subtle Bloom (Glare node) around the Sun and bright stars. Applied a slight color grade using Color Balance — cooled down shadows and warmed midtones for a cinematic space look.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-number">10</div>
+                <div class="timeline-content">
+                    <h3>Final Export</h3>
+                    <p>Rendered as an image sequence (PNG, 1920×1080) then compiled into an MP4 using FFmpeg via Blender's Video Sequence Editor. Output at 24fps with H.264 encoding for web playback.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Specs -->
+    <section id="tech" class="section section-pink">
+        <div class="section-header">
+            <span class="section-badge">🖥️ Technical</span>
+            <h2 class="section-title">Render Specifications</h2>
+        </div>
+
+        <div class="specs-grid">
+            <div class="spec-card">
+                <div class="spec-icon">🎨</div>
+                <h4>Software</h4>
+                <p>Blender 3.6 LTS</p>
+            </div>
+            <div class="spec-card">
+                <div class="spec-icon">⚡</div>
+                <h4>Render Engine</h4>
+                <p>Cycles (GPU)</p>
+            </div>
+            <div class="spec-card">
+                <div class="spec-icon">🎮</div>
+                <h4>GPU</h4>
+                <p>RTX 4050</p>
+            </div>
+            <div class="spec-card">
+                <div class="spec-icon">📐</div>
+                <h4>Resolution</h4>
+                <p>1920 × 1080</p>
+            </div>
+            <div class="spec-card">
+                <div class="spec-icon">🔢</div>
+                <h4>Samples</h4>
+                <p>256 (Stills)<br>128 (Animation)</p>
+            </div>
+            <div class="spec-card">
+                <div class="spec-icon">🎬</div>
+                <h4>Frame Rate</h4>
+                <p>24 fps</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Notes -->
+    <section id="notes" class="section">
+        <div class="section-header">
+            <span class="section-badge">📝 Notes</span>
+            <h2 class="section-title">Project Notes</h2>
+        </div>
+
+        <div class="notes-card">
+            <div class="note-item">
+                <h4>🎯 Project Goal</h4>
+                <p>Recreate a visually accurate Solar System in 3D as a multimedia project, covering modelling, texturing, lighting, animation, and rendering fundamentals.</p>
+            </div>
+            <div class="note-item">
+                <h4>⚠️ Challenges</h4>
+                <p>Managing the extreme scale differences between planets while keeping all objects visible in a single scene required creative scaling. The Saturn ring transparency took multiple shader iterations to get right.</p>
+            </div>
+            <div class="note-item">
+                <h4>📚 Learning Outcomes</h4>
+                <p>This project covered the full Blender production pipeline — from mesh creation and UV mapping through to Cycles GPU rendering, compositing, and video export. The OptiX denoiser significantly reduced render time without sacrificing visual quality on the RTX 4050.</p>
+            </div>
+            <div class="note-item">
+                <h4>⏱️ Time Spent</h4>
+                <p>Approximately 12–15 hours across modelling, texturing, lighting, and rendering sessions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Planet Hub -->
+    <section id="encyclopedia" class="section">
+        <div class="section-header">
+            <span class="section-badge">🌌 Interactive Hub</span>
+            <h2 class="section-title">Explore the Solar System</h2>
+            <p class="section-subtitle">Upload your render video, calculate your age on each planet, and learn about every world.</p>
+        </div>
+
+        <!-- Video Upload Section -->
+        <div class="video-upload-section">
+            <div class="video-display-large" id="videoDisplay">
+                <div class="video-placeholder-hero">
+                    <span>�</span>
+                    <p>Upload your Solar System render</p>
+                    <p class="video-hint">Share your 3D animation with the world</p>
+                </div>
+            </div>
+            <div class="video-controls-large">
+                <input type="file" id="videoUpload" accept="video/*" class="video-input" onchange="handleVideoUpload(event)">
+                <label for="videoUpload" class="btn btn-primary btn-large">
+                    <span>📁</span> Upload Your Video
+                </label>
+                <p class="upload-note">Supported: MP4, WebM, MOV (Max 100MB)</p>
+            </div>
+        </div>
+
+        <!-- Planet Age Calculator -->
+        <div class="calculator-card integrated">
+            <div class="calc-header">
+                <span class="calc-icon">🪐</span>
+                <div>
+                    <h3>Planet Age Calculator</h3>
+                    <p>Enter your Earth age to see how old you'd be on other planets</p>
+                </div>
+            </div>
+            <div class="calc-input-group">
+                <input type="number" id="earth-age" placeholder="Your age on Earth" min="0" max="120">
+                <button onclick="calculatePlanetAges()" class="btn btn-primary">Calculate ✨</button>
+            </div>
+            
+            <div id="age-results" class="age-results-compact">
+                <div class="planet-age-pill">
+                    <span>☿️ Mercury</span>
+                    <strong id="mercury-age">-</strong>
+                </div>
+                <div class="planet-age-pill">
+                    <span>♀️ Venus</span>
+                    <strong id="venus-age">-</strong>
+                </div>
+                <div class="planet-age-pill">
+                    <span>🌍 Earth</span>
+                    <strong id="earth-result">-</strong>
+                </div>
+                <div class="planet-age-pill">
+                    <span>♂️ Mars</span>
+                    <strong id="mars-age">-</strong>
+                </div>
+                <div class="planet-age-pill">
+                    <span>🪐 Jupiter</span>
+                    <strong id="jupiter-age">-</strong>
+                </div>
+                <div class="planet-age-pill">
+                    <span>🪐 Saturn</span>
+                    <strong id="saturn-age">-</strong>
+                </div>
+                <div class="planet-age-pill">
+                    <span>🧊 Uranus</span>
+                    <strong id="uranus-age">-</strong>
+                </div>
+                <div class="planet-age-pill">
+                    <span>🌊 Neptune</span>
+                    <strong id="neptune-age">-</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- Planet Encyclopedia -->
+        <div class="planets-encyclopedia">
+            <h3 class="encyclopedia-title">🌠 Planet Encyclopedia</h3>
+            <div class="planets-grid-videos">
+                <!-- Sun -->
+                <div class="planet-card-video">
+                    <div class="planet-visual" style="background: radial-gradient(circle, #FFD700, #FF8C00, #FF4500);">☀️</div>
+                    <h4>Sun</h4>
+                    <p>The star at the center of our Solar System. A nearly perfect sphere of hot plasma that provides light and heat to all planets.</p>
+                    <div class="planet-video-container">
+                        <video controls loop autoplay muted class="planet-video-player">
+                            <source src="sun0001-0250.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+                <!-- Mercury - No video available -->
+                <div class="planet-card-video">
+                    <div class="planet-visual" style="background: radial-gradient(circle, #8B7355, #5C4033);">☿️</div>
+                    <h4>Mercury</h4>
+                    <p>Smallest planet, closest to the Sun. Extreme temperature swings from 427°C day to -173°C night.</p>
+                    <div class="planet-video-container" id="mercury-video">
+                        <div class="planet-video-placeholder">
+                            <span>🎬</span>
+                            <p>Video coming soon</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Venus -->
+                <div class="planet-card-video">
+                    <div class="planet-visual" style="background: radial-gradient(circle, #E6B87D, #D4A373);">♀️</div>
+                    <h4>Venus</h4>
+                    <p>Hottest planet due to thick CO₂ atmosphere. Retrograde rotation means sun rises in the west.</p>
+                    <div class="planet-video-container">
+                        <video controls loop autoplay muted class="planet-video-player">
+                            <source src="venus0001-0250.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+                <!-- Earth -->
+                <div class="planet-card-video">
+                    <div class="planet-visual" style="background: radial-gradient(circle, #4A90D9, #2E5C8A);">🌍</div>
+                    <h4>Earth</h4>
+                    <p>Only known planet with life. 71% water surface, protective magnetic field and atmosphere.</p>
+                    <div class="planet-video-container">
+                        <video controls loop autoplay muted class="planet-video-player">
+                            <source src="earth0001-0250.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+                <!-- Mars -->
+                <div class="planet-card-video">
+                    <div class="planet-visual" style="background: radial-gradient(circle, #C1440E, #8B2500);">♂️</div>
+                    <h4>Mars</h4>
+                    <p>The Red Planet. Thin atmosphere, polar ice caps, largest volcano (Olympus Mons) in the solar system.</p>
+                    <div class="planet-video-container">
+                        <video controls loop autoplay muted class="planet-video-player">
+                            <source src="mars0001-0250.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+                <!-- Jupiter -->
+                <div class="planet-card-video">
+                    <div class="planet-visual" style="background: radial-gradient(circle, #D4A574, #B8956A, #8B7355);">🪐</div>
+                    <h4>Jupiter</h4>
+                    <p>Largest planet. Gas giant with Great Red Spot storm (larger than Earth). 95 known moons.</p>
+                    <div class="planet-video-container">
+                        <video controls loop autoplay muted class="planet-video-player">
+                            <source src="jupiter0001-0250.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+                <!-- Saturn -->
+                <div class="planet-card-video">
+                    <div class="planet-visual" style="background: radial-gradient(circle, #F4D03F, #D4AC0D);">🪐</div>
+                    <h4>Saturn</h4>
+                    <p>Famous ring system made of ice and rock particles. Less dense than water - would float!</p>
+                    <div class="planet-video-container">
+                        <video controls loop autoplay muted class="planet-video-player">
+                            <source src="saturn0001-0250.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+                <!-- Uranus - No video available -->
+                <div class="planet-card-video">
+                    <div class="planet-visual" style="background: radial-gradient(circle, #AED6F1, #85C1E9);">🧊</div>
+                    <h4>Uranus</h4>
+                    <p>Ice giant tilted 98° on its side. Rotates like a rolling ball. Faint ring system discovered in 1977.</p>
+                    <div class="planet-video-container" id="uranus-video">
+                        <div class="planet-video-placeholder">
+                            <span>🎬</span>
+                            <p>Video coming soon</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Neptune -->
+                <div class="planet-card-video">
+                    <div class="planet-visual" style="background: radial-gradient(circle, #5B7CFF, #3B5CFF);">🌊</div>
+                    <h4>Neptune</h4>
+                    <p>Windiest planet with speeds up to 2,100 km/h. Deep blue color from methane in atmosphere.</p>
+                    <div class="planet-video-container">
+                        <video controls loop autoplay muted class="planet-video-player">
+                            <source src="neptune0001-0250.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+                <!-- Moon -->
+                <div class="planet-card-video">
+                    <div class="planet-visual" style="background: radial-gradient(circle, #C0C0C0, #808080, #606060);">🌙</div>
+                    <h4>Moon</h4>
+                    <p>Earth's only natural satellite. Fifth largest moon in the Solar System, responsible for tides and stabilizing Earth's rotation.</p>
+                    <div class="planet-video-container" id="moon-video">
+                        <div class="planet-video-placeholder">
+                            <span>🎬</span>
+                            <p>Video coming soon</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pluto -->
+                <div class="planet-card-video">
+                    <div class="planet-visual" style="background: radial-gradient(circle, #D8BFD8, #BC8F8F, #8B7355);">🪨</div>
+                    <h4>Pluto</h4>
+                    <p>Dwarf planet in the Kuiper belt. Reclassified from planet in 2006. Has a heart-shaped glacier and five known moons.</p>
+                    <div class="planet-video-container" id="pluto-video">
+                        <div class="planet-video-placeholder">
+                            <span>🎬</span>
+                            <p>Video coming soon</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="footer-logo">🎀 Multimedia Studio</span>
+                <p>Created with 💕 for Multimedia and Authoring course</p>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="3d-rendering.html">3D Rendering</a>
+                <a href="rotoscope.html">Rotoscope</a>
+                <a href="about.html">About</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Nathaniell Jeffrey F. Hernandez • BSIT TUP-Taguig</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function handleVideoUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const videoUrl = URL.createObjectURL(file);
+                const videoDisplay = document.getElementById('videoDisplay');
+                videoDisplay.innerHTML = `
+                    <video controls class="uploaded-video-large">
+                        <source src="${videoUrl}" type="${file.type}">
+                        Your browser does not support the video tag.
+                    </video>
+                `;
+            }
+        }
+
+        function handlePlanetVideoUpload(event, planet) {
+            const file = event.target.files[0];
+            if (file) {
+                const videoUrl = URL.createObjectURL(file);
+                const container = document.getElementById(planet + '-video');
+                container.innerHTML = `
+                    <video controls loop autoplay muted class="planet-video-player">
+                        <source src="${videoUrl}" type="${file.type}">
+                        Your browser does not support the video tag.
+                    </video>
+                `;
+            }
+        }
+
+        function embedPlanetVideo(planet, url) {
+            if (!url) return;
+            
+            let videoId = '';
+            
+            // Extract YouTube video ID from various URL formats
+            if (url.includes('youtube.com/watch?v=')) {
+                videoId = url.split('v=')[1]?.split('&')[0];
+            } else if (url.includes('youtu.be/')) {
+                videoId = url.split('youtu.be/')[1]?.split('?')[0];
+            } else if (url.includes('youtube.com/embed/')) {
+                videoId = url.split('embed/')[1]?.split('?')[0];
+            }
+            
+            if (videoId) {
+                const container = document.getElementById(planet + '-video');
+                container.innerHTML = `
+                    <div class="planet-video-embed">
+                        <iframe 
+                            src="https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}" 
+                            title="${planet} Video"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>

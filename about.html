@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimedia Studio | About Me</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="float-item">🌸</div>
+        <div class="float-item">✨</div>
+        <div class="float-item">👋</div>
+        <div class="float-item">🌙</div>
+        <div class="float-item">⭐</div>
+    </div>
+
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🎀</span>
+                <span class="logo-text">Multimedia Studio</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="3d-rendering.html" class="nav-link">3D Rendering</a></li>
+                <li><a href="rotoscope.html" class="nav-link">Rotoscope</a></li>
+                <li><a href="about.html" class="nav-link active">About Me</a></li>
+            </ul>
+            <button class="theme-toggle" id="theme-toggle" title="Toggle Light/Dark Mode">
+                <span class="theme-icon">🌙</span>
+            </button>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <section class="hero hero-purple">
+        <div class="hero-content">
+            <div class="hero-badge">👋 About the Creator</div>
+            <h1 class="hero-title">Nathaniell Jeffrey F. Hernandez</h1>
+            <p class="hero-subtitle">BSIT student at the Technological University of the Philippines – Taguig, currently taking Multimedia courses covering 3D modelling, rendering, and 2D animation techniques like rotoscoping.</p>
+        </div>
+    </section>
+
+    <!-- Featured Hardware -->
+    <section class="section section-gpu">
+        <div class="gpu-showcase">
+            <div class="gpu-visual">
+                <div class="gpu-icon">🎮</div>
+                <div class="gpu-glow"></div>
+            </div>
+            <div class="gpu-info">
+                <span class="gpu-label">Powered By</span>
+                <h2 class="gpu-name">NVIDIA RTX 4050</h2>
+                <p class="gpu-desc">Accelerating creativity with CUDA compute and OptiX denoising for real-time rendering.</p>
+                <div class="gpu-specs">
+                    <div class="gpu-spec">
+                        <span class="spec-value">6GB</span>
+                        <span class="spec-name">GDDR6</span>
+                    </div>
+                    <div class="gpu-spec">
+                        <span class="spec-value">CUDA</span>
+                        <span class="spec-name">Compute</span>
+                    </div>
+                    <div class="gpu-spec">
+                        <span class="spec-value">OptiX</span>
+                        <span class="spec-name">Denoising</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools & Software -->
+    <section class="section">
+        <div class="section-header">
+            <span class="section-badge">🛠️ Tools</span>
+            <h2 class="section-title">Tools & Software</h2>
+        </div>
+
+        <div class="tools-grid">
+            <div class="tool-card">
+                <div class="tool-icon">🎨</div>
+                <h4>Blender</h4>
+                <p>Open-source 3D creation suite used for modelling, shading, animation, and rendering the Solar System project.</p>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon">⚡</div>
+                <h4>Cycles Render Engine</h4>
+                <p>Physically-based path tracer in Blender, used with GPU acceleration for realistic lighting and shadows.</p>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon">✏️</div>
+                <h4>Rotoscoping Software</h4>
+                <p>Frame-by-frame tracing over reference video footage to create the 12-week animation series.</p>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon">🎬</div>
+                <h4>FFmpeg / VSE</h4>
+                <p>Used to compile rendered image sequences into MP4 video via Blender's Video Sequence Editor.</p>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon">💻</div>
+                <h4>HTML / CSS / JS</h4>
+                <p>This portfolio site is built with vanilla HTML, CSS, and JavaScript — hosted on GitHub Pages.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-pink">
+        <div class="section-header">
+            <span class="section-badge">📁 Portfolio</span>
+            <h2 class="section-title">Portfolio Projects</h2>
+        </div>
+
+        <div class="portfolio-cards">
+            <a href="3d-rendering.html" class="portfolio-card">
+                <div class="portfolio-icon">🪐</div>
+                <h3>3D Rendering</h3>
+                <h4>Solar System in Blender</h4>
+                <p>Full modelling-to-render pipeline: UV unwrapping, Principled BSDF shaders, Sun emission lighting, Saturn ring transparency, OptiX denoising on RTX 4050, and a Blender Compositor post-process. Rendered at 1920×1080.</p>
+            </a>
+            <a href="rotoscope.html" class="portfolio-card">
+                <div class="portfolio-icon">🎬</div>
+                <h3>Rotoscope</h3>
+                <h4>12-Week Rotoscope Series</h4>
+                <p>A semester-long rotoscope animation project. Each week produced a new animation clip tracing real footage. All 12 weeks are embedded as YouTube videos, with a reference video and production credits.</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section section-contact">
+        <div class="section-header">
+            <span class="section-badge">📬 Contact</span>
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Let's connect and create something amazing together.</p>
+        </div>
+
+        <div class="contact-cards">
+            <a href="mailto:nathaniellhernandez8@gmail.com" class="contact-card">
+                <div class="contact-icon">📧</div>
+                <div class="contact-info">
+                    <h4>Email</h4>
+                    <p>nathaniellhernandez8@gmail.com</p>
+                </div>
+            </a>
+            <div class="contact-card">
+                <div class="contact-icon">📱</div>
+                <div class="contact-info">
+                    <h4>Phone</h4>
+                    <p>09619920595</p>
+                </div>
+            </div>
+            <div class="contact-card">
+                <div class="contact-icon">🎓</div>
+                <div class="contact-info">
+                    <h4>University</h4>
+                    <p>TUP-Taguig • BSIT</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-header">
+            <span class="section-badge">📚 Course</span>
+            <h2 class="section-title">About the Course</h2>
+        </div>
+
+        <div class="course-card">
+            <p>This portfolio was created as part of a Multimedia course at the Technological University of the Philippines – Taguig. The course covers both 2D and 3D multimedia production techniques, from digital animation fundamentals to 3D rendering pipelines.</p>
+            
+            <h4>Skills Developed</h4>
+            <ul class="skills-list">
+                <li>🎨 3D modelling and UV unwrapping in Blender</li>
+                <li>💡 Physically-based materials and shader nodes</li>
+                <li>⚡ Cycles GPU rendering and denoising</li>
+                <li>✏️ Rotoscoping and frame-by-frame tracing</li>
+                <li>🎬 Video compositing and post-processing</li>
+                <li>💻 Static web development with HTML/CSS/JS</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="footer-logo">🎀 Multimedia Studio</span>
+                <p>Created with 💕 for Multimedia and Authoring course</p>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="3d-rendering.html">3D Rendering</a>
+                <a href="rotoscope.html">Rotoscope</a>
+                <a href="about.html">About</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Nathaniell Jeffrey F. Hernandez • BSIT TUP-Taguig</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

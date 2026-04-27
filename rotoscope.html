@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimedia Studio | Rotoscope</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="float-item">🌸</div>
+        <div class="float-item">✨</div>
+        <div class="float-item">🎬</div>
+        <div class="float-item">🌙</div>
+        <div class="float-item">⭐</div>
+    </div>
+
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🎀</span>
+                <span class="logo-text">Multimedia Studio</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="3d-rendering.html" class="nav-link">3D Rendering</a></li>
+                <li><a href="rotoscope.html" class="nav-link active">Rotoscope</a></li>
+                <li><a href="about.html" class="nav-link">About Me</a></li>
+            </ul>
+            <button class="theme-toggle" id="theme-toggle" title="Toggle Light/Dark Mode">
+                <span class="theme-icon">🌙</span>
+            </button>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <section class="hero hero-pink">
+        <div class="hero-content">
+            <div class="hero-badge">🎬 Animation</div>
+            <h1 class="hero-title">ROTOSCOPE</h1>
+            <p class="hero-subtitle">Frame-by-frame trace, cleanup, and motion studies — watch them play directly below.</p>
+        </div>
+    </section>
+
+    <!-- Reference Video Section -->
+    <section class="section section-accent">
+        <div class="section-header">
+            <span class="section-badge">📚 Reference</span>
+            <h2 class="section-title">Reference Video</h2>
+            <p class="section-subtitle">How to Rotoscope in After Effects — This video serves as the primary reference used for completing the rotoscope exercises.</p>
+        </div>
+
+        <div class="video-embed-container">
+            <iframe 
+                src="https://www.youtube.com/embed/-Y_WnKK7KwU?si=zBO2qWF2FlRNvMmJ" 
+                title="How to Rotoscope in After Effects - Reference Video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="reference-info">
+            <div class="info-card">
+                <h4>� Purpose</h4>
+                <p>This reference video covers the essential workflow for isolating subjects frame-by-frame, refining edges, and integrating rotoscoped layers into a compositing pipeline using Adobe After Effects.</p>
+            </div>
+            <div class="info-card">
+                <h4>📋 Topics Covered</h4>
+                <ul>
+                    <li>Frame-by-frame tracing techniques</li>
+                    <li>Edge refinement and masking</li>
+                    <li>Layer integration in After Effects</li>
+                    <li>Workflow optimization tips</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructions Grid (8 Spaces) -->
+    <section class="section section-pink">
+        <div class="section-header">
+            <span class="section-badge">📋 Instructions</span>
+            <h2 class="section-title">How to Rotoscope</h2>
+            <p class="section-subtitle">Follow these 8 steps to master frame-by-frame animation techniques.</p>
+        </div>
+
+        <div class="instructions-grid">
+            <div class="instruction-card">
+                <div class="instruction-image">
+                    <div class="instruction-placeholder">🎬</div>
+                </div>
+                <div class="instruction-number">01</div>
+                <h4>Import Reference</h4>
+                <p>Load your video footage into the timeline as a reference layer.</p>
+            </div>
+            <div class="instruction-card">
+                <div class="instruction-image">
+                    <div class="instruction-placeholder">🎯</div>
+                </div>
+                <div class="instruction-number">02</div>
+                <h4>Set Keyframes</h4>
+                <p>Identify and mark the key poses in your reference footage.</p>
+            </div>
+            <div class="instruction-card">
+                <div class="instruction-image">
+                    <div class="instruction-placeholder">✏️</div>
+                </div>
+                <div class="instruction-number">03</div>
+                <h4>Rough Tracing</h4>
+                <p>Trace the basic outlines frame by frame with loose strokes.</p>
+            </div>
+            <div class="instruction-card">
+                <div class="instruction-image">
+                    <div class="instruction-placeholder">🔍</div>
+                </div>
+                <div class="instruction-number">04</div>
+                <h4>Refine Lines</h4>
+                <p>Clean up rough traces with consistent line weight.</p>
+            </div>
+            <div class="instruction-card">
+                <div class="instruction-image">
+                    <div class="instruction-placeholder">🎨</div>
+                </div>
+                <div class="instruction-number">05</div>
+                <h4>Add Color</h4>
+                <p>Apply flat colors beneath the line layer.</p>
+            </div>
+            <div class="instruction-card">
+                <div class="instruction-image">
+                    <div class="instruction-placeholder">⚡</div>
+                </div>
+                <div class="instruction-number">06</div>
+                <h4>Timing</h4>
+                <p>Adjust frame timing for smooth motion flow.</p>
+            </div>
+            <div class="instruction-card">
+                <div class="instruction-image">
+                    <div class="instruction-placeholder">✨</div>
+                </div>
+                <div class="instruction-number">07</div>
+                <h4>Polish</h4>
+                <p>Add details, shadows, and highlights.</p>
+            </div>
+            <div class="instruction-card">
+                <div class="instruction-image">
+                    <div class="instruction-placeholder">🎬</div>
+                </div>
+                <div class="instruction-number">08</div>
+                <h4>Export</h4>
+                <p>Render and export your final animation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12-Week Rotoscope Carousel -->
+    <section class="section">
+        <div class="section-header">
+            <span class="section-badge">🎬 Gallery</span>
+            <h2 class="section-title">12-Week Rotoscope Series</h2>
+            <p class="section-subtitle">A semester-long rotoscope animation project. Click the arrows to navigate through each week.</p>
+        </div>
+
+        <div class="carousel-container">
+            <button class="carousel-arrow carousel-prev" onclick="moveCarousel(-1)">←</button>
+            
+            <div class="carousel-track" id="carouselTrack">
+                <!-- Week 1 -->
+                <div class="carousel-slide active">
+                    <div class="carousel-content">
+                        <div class="carousel-badge">Week 1</div>
+                        <div class="carousel-icon">🎯</div>
+                        <h3>Intro to Rotoscoping</h3>
+                        <p>Learn the fundamentals of frame-by-frame tracing and body movement isolation.</p>
+                        <div class="carousel-video">
+                            <iframe src="https://www.youtube.com/embed/aMqTbmEvt1Q" title="Week 1" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                <!-- Week 2 -->
+                <div class="carousel-slide">
+                    <div class="carousel-content">
+                        <div class="carousel-badge">Week 2</div>
+                        <div class="carousel-icon">✏️</div>
+                        <h3>Line Cleanup Workflow</h3>
+                        <p>Smoothing rough traces and achieving clean, consistent line weight across frames.</p>
+                        <div class="carousel-video">
+                            <iframe src="https://www.youtube.com/embed/b3GM4Ovwals" title="Week 2" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                <!-- Week 3 -->
+                <div class="carousel-slide">
+                    <div class="carousel-content">
+                        <div class="carousel-badge">Week 3</div>
+                        <div class="carousel-icon">🎭</div>
+                        <h3>Key Pose Blocking</h3>
+                        <p>Identifying and locking down strong poses before filling in in-betweens.</p>
+                        <div class="carousel-video">
+                            <iframe src="https://www.youtube.com/embed/sDvKuTP-xCw" title="Week 3" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                <!-- Week 4 -->
+                <div class="carousel-slide">
+                    <div class="carousel-content">
+                        <div class="carousel-badge">Week 4</div>
+                        <div class="carousel-icon">🌈</div>
+                        <h3>Final Color Timing</h3>
+                        <p>Applying flat color fills and a final timing pass over the traced sequence.</p>
+                        <div class="carousel-video">
+                            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_4" title="Week 4" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                <!-- Week 5 -->
+                <div class="carousel-slide">
+                    <div class="carousel-content">
+                        <div class="carousel-badge">Week 5</div>
+                        <div class="carousel-icon">🚶</div>
+                        <h3>Walk Cycle Breakdown</h3>
+                        <p>Breaking down a reference walk cycle frame by frame for accurate tracing.</p>
+                        <div class="carousel-video">
+                            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_5" title="Week 5" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                <!-- Week 6 -->
+                <div class="carousel-slide">
+                    <div class="carousel-content">
+                        <div class="carousel-badge">Week 6</div>
+                        <div class="carousel-icon">👤</div>
+                        <h3>Silhouette & Shape Read</h3>
+                        <p>Using strong silhouettes to guide the roto matte and shape clarity at distance.</p>
+                        <div class="carousel-video">
+                            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_6" title="Week 6" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                <!-- Week 7 -->
+                <div class="carousel-slide">
+                    <div class="carousel-content">
+                        <div class="carousel-badge">Week 7</div>
+                        <div class="carousel-icon">⚙️</div>
+                        <h3>Software Pipeline Overview</h3>
+                        <p>A quick tour of the tools used in a rotoscope production pipeline.</p>
+                        <div class="carousel-video">
+                            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_7" title="Week 7" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                <!-- Week 8 -->
+                <div class="carousel-slide">
+                    <div class="carousel-content">
+                        <div class="carousel-badge">Week 8</div>
+                        <div class="carousel-icon">💇</div>
+                        <h3>Roto on Hair & Fur</h3>
+                        <p>Techniques for handling complex, fine-detail areas like hair and clothing edges.</p>
+                        <div class="carousel-video">
+                            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_8" title="Week 8" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                <!-- Week 9 -->
+                <div class="carousel-slide">
+                    <div class="carousel-content">
+                        <div class="carousel-badge">Week 9</div>
+                        <div class="carousel-icon">⏱️</div>
+                        <h3>Speed Ramping in Roto</h3>
+                        <p>How changing frame rates and speed ramps affect rotoscope timing and holds.</p>
+                        <div class="carousel-video">
+                            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_9" title="Week 9" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                <!-- Week 10 -->
+                <div class="carousel-slide">
+                    <div class="carousel-content">
+                        <div class="carousel-badge">Week 10</div>
+                        <div class="carousel-icon">🎬</div>
+                        <h3>Integrating Roto into Comp</h3>
+                        <p>Passing roto mattes downstream into a compositing pipeline cleanly.</p>
+                        <div class="carousel-video">
+                            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_10" title="Week 10" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                <!-- Week 11 -->
+                <div class="carousel-slide">
+                    <div class="carousel-content">
+                        <div class="carousel-badge">Week 11</div>
+                        <div class="carousel-icon">🔄</div>
+                        <h3>Before & After Comparison</h3>
+                        <p>Side-by-side of raw footage versus finished rotoscoped output.</p>
+                        <div class="carousel-video">
+                            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_11" title="Week 11" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                <!-- Week 12 -->
+                <div class="carousel-slide">
+                    <div class="carousel-content">
+                        <div class="carousel-badge">Week 12</div>
+                        <div class="carousel-icon">🎥</div>
+                        <h3>Full Reel Showreel</h3>
+                        <p>A compiled showreel of rotoscope work across multiple productions.</p>
+                        <div class="carousel-video">
+                            <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_12" title="Week 12" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="carousel-arrow carousel-next" onclick="moveCarousel(1)">→</button>
+        </div>
+        
+        <div class="carousel-indicators" id="carouselIndicators">
+            <span class="indicator active" onclick="goToSlide(0)"></span>
+            <span class="indicator" onclick="goToSlide(1)"></span>
+            <span class="indicator" onclick="goToSlide(2)"></span>
+            <span class="indicator" onclick="goToSlide(3)"></span>
+            <span class="indicator" onclick="goToSlide(4)"></span>
+            <span class="indicator" onclick="goToSlide(5)"></span>
+            <span class="indicator" onclick="goToSlide(6)"></span>
+            <span class="indicator" onclick="goToSlide(7)"></span>
+            <span class="indicator" onclick="goToSlide(8)"></span>
+            <span class="indicator" onclick="goToSlide(9)"></span>
+            <span class="indicator" onclick="goToSlide(10)"></span>
+            <span class="indicator" onclick="goToSlide(11)"></span>
+        </div>
+    </section>
+
+    <!-- Production Notes -->
+    <section class="section section-accent">
+        <div class="section-header">
+            <span class="section-badge">📝 Notes</span>
+            <h2 class="section-title">Production Notes</h2>
+        </div>
+
+        <div class="notes-grid">
+            <div class="note-card">
+                <h4>🎯 Project Goal</h4>
+                <p>Create a 12-week rotoscope animation series tracing real footage frame-by-frame to master the fundamentals of rotoscoping.</p>
+            </div>
+            <div class="note-card">
+                <h4>⚙️ Software Used</h4>
+                <p>Adobe After Effects for rotoscoping, with additional compositing and color grading in the later weeks.</p>
+            </div>
+            <div class="note-card">
+                <h4>⏱️ Time Investment</h4>
+                <p>Each weekly assignment took approximately 4-6 hours of frame-by-frame tracing, cleanup, and rendering.</p>
+            </div>
+            <div class="note-card">
+                <h4>📚 Learning Outcomes</h4>
+                <p>Mastered frame-by-frame animation, edge refinement, timing, and compositing integration through practical rotoscope exercises.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="footer-logo">🎀 Multimedia Studio</span>
+                <p>Created with 💕 for Multimedia course</p>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="3d-rendering.html">3D Rendering</a>
+                <a href="rotoscope.html">Rotoscope</a>
+                <a href="about.html">About</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Nathaniell Jeffrey F. Hernandez • BSIT TUP-Taguig</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const indicators = document.querySelectorAll('.indicator');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                indicators[i].classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                    indicators[i].classList.add('active');
+                }
+            });
+        }
+
+        function moveCarousel(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) currentSlide = totalSlides - 1;
+            if (currentSlide >= totalSlides) currentSlide = 0;
+            showSlide(currentSlide);
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            showSlide(currentSlide);
+        }
+    </script>
+</body>
+</html>

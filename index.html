@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimedia Studio | Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Floating Decorative Elements -->
+    <div class="floating-elements">
+        <div class="float-item">🌸</div>
+        <div class="float-item">✨</div>
+        <div class="float-item">🎨</div>
+        <div class="float-item">🌙</div>
+        <div class="float-item">⭐</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🎀</span>
+                <span class="logo-text">Multimedia Studio</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="3d-rendering.html" class="nav-link">3D Rendering</a></li>
+                <li><a href="rotoscope.html" class="nav-link">Rotoscope</a></li>
+                <li><a href="about.html" class="nav-link">About Me</a></li>
+            </ul>
+            <button class="theme-toggle" id="theme-toggle" title="Toggle Light/Dark Mode">
+                <span class="theme-icon">🌙</span>
+            </button>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section - Portfolio Style -->
+    <section class="hero hero-portfolio">
+        <div class="hero-content">
+            <div class="hero-intro">
+                <span class="hero-greeting">Hello, I'm</span>
+                <h1 class="hero-title-portfolio">Nathaniell Jeffrey F. Hernandez</h1>
+                <p class="hero-tagline">BSIT Student • Multimedia Developer • 3D Artist</p>
+                <p class="hero-description">A showcase of 3D rendering and rotoscope animation work created for the Multimedia and Authoring course at TUP-Taguig.</p>
+            </div>
+            
+            <div class="hero-cta">
+                <a href="#portfolio" class="btn btn-primary btn-large">
+                    <span>👁️</span> View My Work
+                </a>
+                <a href="about.html" class="btn btn-outline">
+                    <span>👋</span> About Me
+                </a>
+            </div>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">2</span>
+                    <span class="stat-label">Major Projects</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">12</span>
+                    <span class="stat-label">Weeks of Animation</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">8</span>
+                    <span class="stat-label">Planets Rendered</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-visual">
+            <div class="portfolio-preview">
+                <div class="preview-card preview-3d">
+                    <span class="preview-icon">🪐</span>
+                    <span class="preview-label">3D Solar System</span>
+                </div>
+                <div class="preview-card preview-roto">
+                    <span class="preview-icon">🎬</span>
+                    <span class="preview-label">Rotoscope Series</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Showcase -->
+    <section id="portfolio" class="section section-portfolio">
+        <div class="section-header">
+            <span class="section-badge">💼 Portfolio</span>
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">A collection of multimedia work showcasing 3D rendering and animation skills.</p>
+        </div>
+
+        <div class="portfolio-showcase">
+            <!-- Solar System Project -->
+            <div class="showcase-item">
+                <div class="showcase-visual">
+                    <div class="showcase-icon-large">🪐</div>
+                    <div class="showcase-badges">
+                        <span class="showcase-badge">Blender</span>
+                        <span class="showcase-badge">3D</span>
+                        <span class="showcase-badge">Cycles</span>
+                    </div>
+                </div>
+                <div class="showcase-content">
+                    <span class="showcase-category">3D Rendering</span>
+                    <h3 class="showcase-title">Solar System in Blender</h3>
+                    <p class="showcase-desc">A fully modelled Solar System rendered in Blender using Cycles and an RTX 4050. Features planetary textures, Sun emission lighting, Saturn's rings, star field, and a cinematic camera orbit.</p>
+                    <ul class="showcase-features">
+                        <li>🌍 8 planets with accurate proportions</li>
+                        <li>☀️ Realistic Sun emission lighting</li>
+                        <li>🎬 Cinematic camera animation</li>
+                        <li>✨ Procedural star field background</li>
+                    </ul>
+                    <a href="3d-rendering.html" class="showcase-link">
+                        View Project Details <span>→</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Rotoscope Project -->
+            <div class="showcase-item showcase-reverse">
+                <div class="showcase-content">
+                    <span class="showcase-category">Animation</span>
+                    <h3 class="showcase-title">12-Week Rotoscope Series</h3>
+                    <p class="showcase-desc">A semester-long rotoscope animation project tracing real footage frame-by-frame. Progressing from basic tracing to advanced techniques like hair roto and compositing integration.</p>
+                    <ul class="showcase-features">
+                        <li>🎯 Frame-by-frame tracing techniques</li>
+                        <li>✏️ Line cleanup and refinement</li>
+                        <li>🎭 Key pose blocking methods</li>
+                        <li>🎬 Final compositing workflow</li>
+                    </ul>
+                    <a href="rotoscope.html" class="showcase-link">
+                        View Animation Series <span>→</span>
+                    </a>
+                </div>
+                <div class="showcase-visual showcase-visual-pink">
+                    <div class="showcase-icon-large">🎬</div>
+                    <div class="showcase-badges">
+                        <span class="showcase-badge">After Effects</span>
+                        <span class="showcase-badge">12 Weeks</span>
+                        <span class="showcase-badge">Frame-by-Frame</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills & Tools -->
+    <section class="section section-skills">
+        <div class="section-header">
+            <span class="section-badge">🛠️ Skills</span>
+            <h2 class="section-title">Tools & Technologies</h2>
+            <p class="section-subtitle">Software and hardware used to create these projects.</p>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon">🎨</div>
+                <h4>Blender</h4>
+                <p>3D modelling, texturing & rendering</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">⚡</div>
+                <h4>Cycles Engine</h4>
+                <p>GPU-accelerated ray tracing</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🎬</div>
+                <h4>After Effects</h4>
+                <p>Rotoscoping & compositing</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🎮</div>
+                <h4>RTX 4050</h4>
+                <p>CUDA & OptiX rendering</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">💻</div>
+                <h4>HTML/CSS/JS</h4>
+                <p>Portfolio website development</p>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🎥</div>
+                <h4>FFmpeg</h4>
+                <p>Video encoding & export</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="footer-logo">🎀 Multimedia Studio</span>
+                <p>Created with 💕 for Multimedia and Authoring course</p>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="3d-rendering.html">3D Rendering</a>
+                <a href="rotoscope.html">Rotoscope</a>
+                <a href="about.html">About</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Nathaniell Jeffrey F. Hernandez • BSIT TUP-Taguig</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
