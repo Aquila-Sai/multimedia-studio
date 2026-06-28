@@ -58,7 +58,7 @@
                 <div class="video-embed-container">
                     <iframe 
                         id="yt-reference"
-                        src="https://www.youtube.com/embed/-Y_WnKK7KwU?si=zBO2qWF2FlRNvMmJ" 
+                        src="https://www.youtube.com/embed/-Y_WnKK7KwU?si=zBO2qWF2FlRNvMmJ&enablejsapi=1" 
                         title="How to Rotoscope in After Effects - Reference Video"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen>
@@ -80,7 +80,7 @@
                 <div class="video-embed-container">
                     <iframe 
                         id="yt-final"
-                        src="https://www.youtube.com/embed/XmUGV_KWy_4" 
+                        src="https://www.youtube.com/embed/XmUGV_KWy_4?enablejsapi=1" 
                         title="Final Rotoscope Output"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen>
@@ -416,24 +416,10 @@
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
         var playerReference, playerFinal;
-        var playersReady = 0;
 
         function onYouTubeIframeAPIReady() {
-            playerReference = new YT.Player('yt-reference', {
-                events: {
-                    'onReady': onPlayerReady
-                }
-            });
-
-            playerFinal = new YT.Player('yt-final', {
-                events: {
-                    'onReady': onPlayerReady
-                }
-            });
-        }
-
-        function onPlayerReady(event) {
-            playersReady++;
+            playerReference = new YT.Player('yt-reference');
+            playerFinal = new YT.Player('yt-final');
         }
 
         function toggleMute(iframeId) {
@@ -450,22 +436,26 @@
         }
 
         function syncAllVideos() {
-            if (playersReady < 2) {
-                alert('Videos are still loading. Please wait a moment and try again.');
+            if (!playerReference || !playerFinal || !playerReference.getCurrentTime || !playerFinal.seekTo) {
+                alert('YouTube API is still loading. Please wait a moment and try again.');
                 return;
             }
 
-            // Sync final output to reference video
-            const refTime = playerReference.getCurrentTime();
-            const refState = playerReference.getPlayerState();
-            
-            playerFinal.seekTo(refTime, true);
-            
-            // If reference is playing, play final too
-            if (refState === YT.PlayerState.PLAYING) {
-                playerFinal.playVideo();
-            } else if (refState === YT.PlayerState.PAUSED) {
-                playerFinal.pauseVideo();
+            try {
+                // Sync final output to reference video
+                const refTime = playerReference.getCurrentTime();
+                const refState = playerReference.getPlayerState();
+                
+                playerFinal.seekTo(refTime, true);
+                
+                // If reference is playing, play final too
+                if (refState === 1) { // YT.PlayerState.PLAYING = 1
+                    playerFinal.playVideo();
+                } else if (refState === 2) { // YT.PlayerState.PAUSED = 2
+                    playerFinal.pauseVideo();
+                }
+            } catch (error) {
+                alert('Sync failed: ' + error.message);
             }
         }
 
