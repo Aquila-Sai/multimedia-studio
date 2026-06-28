@@ -43,26 +43,58 @@
         </div>
     </section>
 
-    <!-- Reference Video Section -->
+    <!-- Reference & Final Output Side by Side -->
     <section class="section section-accent">
         <div class="section-header">
-            <span class="section-badge">📚 Reference</span>
-            <h2 class="section-title">Reference Video</h2>
-            <p class="section-subtitle">How to Rotoscope in After Effects — This video serves as the primary reference used for completing the rotoscope exercises.</p>
+            <span class="section-badge">📚 Videos</span>
+            <h2 class="section-title">Reference & Final Output</h2>
+            <p class="section-subtitle">Compare the reference video with your final rotoscope masterpiece side by side.</p>
         </div>
 
-        <div class="video-embed-container">
-            <iframe 
-                src="https://www.youtube.com/embed/-Y_WnKK7KwU?si=zBO2qWF2FlRNvMmJ" 
-                title="How to Rotoscope in After Effects - Reference Video"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-            </iframe>
+        <div class="videos-side-by-side">
+            <!-- Reference Video -->
+            <div class="video-side-panel">
+                <h3 class="video-panel-title">📚 Reference Video</h3>
+                <div class="video-embed-container">
+                    <iframe 
+                        id="yt-reference"
+                        src="https://www.youtube.com/embed/-Y_WnKK7KwU?si=zBO2qWF2FlRNvMmJ" 
+                        title="How to Rotoscope in After Effects - Reference Video"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-panel-controls">
+                    <button class="video-control-btn" onclick="toggleMute('yt-reference')">🔊 Mute</button>
+                </div>
+            </div>
+
+            <!-- Sync Controls (Middle) -->
+            <div class="sync-controls-middle">
+                <button class="sync-btn-large" onclick="syncAllVideos()">🔄 Sync All</button>
+            </div>
+
+            <!-- Final Output -->
+            <div class="video-side-panel">
+                <h3 class="video-panel-title">🎬 Final Output</h3>
+                <div class="video-embed-container">
+                    <iframe 
+                        id="yt-final"
+                        src="https://www.youtube.com/embed/YOUR_FINAL_VIDEO_ID" 
+                        title="Final Rotoscope Output"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-panel-controls">
+                    <button class="video-control-btn" onclick="toggleMute('yt-final')">🔊 Mute</button>
+                </div>
+            </div>
         </div>
 
         <div class="reference-info">
             <div class="info-card">
-                <h4>� Purpose</h4>
+                <h4>⚡ Purpose</h4>
                 <p>This reference video covers the essential workflow for isolating subjects frame-by-frame, refining edges, and integrating rotoscoped layers into a compositing pipeline using Adobe After Effects.</p>
             </div>
             <div class="info-card">
@@ -403,6 +435,23 @@
         function goToSlide(index) {
             currentSlide = index;
             showSlide(currentSlide);
+        }
+
+        function toggleMute(iframeId) {
+            const iframe = document.getElementById(iframeId);
+            const currentSrc = iframe.src;
+            
+            if (currentSrc.includes('mute=1')) {
+                iframe.src = currentSrc.replace('mute=1', 'mute=0');
+            } else if (currentSrc.includes('mute=0')) {
+                iframe.src = currentSrc.replace('mute=0', 'mute=1');
+            } else {
+                iframe.src = currentSrc + (currentSrc.includes('?') ? '&' : '?') + 'mute=1';
+            }
+        }
+
+        function syncAllVideos() {
+            alert('Sync functionality: YouTube embeds cannot be programmatically synced due to browser restrictions. Use the manual controls on each video to synchronize playback.');
         }
     </script>
 </body>
