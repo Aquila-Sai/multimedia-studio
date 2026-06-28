@@ -409,6 +409,67 @@
 
     <script src="script.js"></script>
     <script>
+        // Load YouTube IFrame Player API
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var playerReference, playerFinal;
+        var playersReady = 0;
+
+        function onYouTubeIframeAPIReady() {
+            playerReference = new YT.Player('yt-reference', {
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+
+            playerFinal = new YT.Player('yt-final', {
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            playersReady++;
+        }
+
+        function toggleMute(iframeId) {
+            const iframe = document.getElementById(iframeId);
+            const currentSrc = iframe.src;
+            
+            if (currentSrc.includes('mute=1')) {
+                iframe.src = currentSrc.replace('mute=1', 'mute=0');
+            } else if (currentSrc.includes('mute=0')) {
+                iframe.src = currentSrc.replace('mute=0', 'mute=1');
+            } else {
+                iframe.src = currentSrc + (currentSrc.includes('?') ? '&' : '?') + 'mute=1';
+            }
+        }
+
+        function syncAllVideos() {
+            if (playersReady < 2) {
+                alert('Videos are still loading. Please wait a moment and try again.');
+                return;
+            }
+
+            // Sync final output to reference video
+            const refTime = playerReference.getCurrentTime();
+            const refState = playerReference.getPlayerState();
+            
+            playerFinal.seekTo(refTime, true);
+            
+            // If reference is playing, play final too
+            if (refState === YT.PlayerState.PLAYING) {
+                playerFinal.playVideo();
+            } else if (refState === YT.PlayerState.PAUSED) {
+                playerFinal.pauseVideo();
+            }
+        }
+
+        // Carousel functions
         let currentSlide = 0;
         const slides = document.querySelectorAll('.carousel-slide');
         const indicators = document.querySelectorAll('.indicator');
@@ -435,23 +496,6 @@
         function goToSlide(index) {
             currentSlide = index;
             showSlide(currentSlide);
-        }
-
-        function toggleMute(iframeId) {
-            const iframe = document.getElementById(iframeId);
-            const currentSrc = iframe.src;
-            
-            if (currentSrc.includes('mute=1')) {
-                iframe.src = currentSrc.replace('mute=1', 'mute=0');
-            } else if (currentSrc.includes('mute=0')) {
-                iframe.src = currentSrc.replace('mute=0', 'mute=1');
-            } else {
-                iframe.src = currentSrc + (currentSrc.includes('?') ? '&' : '?') + 'mute=1';
-            }
-        }
-
-        function syncAllVideos() {
-            alert('Sync functionality: YouTube embeds cannot be programmatically synced due to browser restrictions. Use the manual controls on each video to synchronize playback.');
         }
     </script>
 </body>
