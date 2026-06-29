@@ -56,13 +56,10 @@
             <div class="video-side-panel">
                 <h3 class="video-panel-title">📚 Reference Video</h3>
                 <div class="video-embed-container">
-                    <iframe 
+                    <div 
                         id="yt-reference"
-                        src="https://www.youtube.com/embed/-Y_WnKK7KwU?si=zBO2qWF2FlRNvMmJ" 
-                        title="How to Rotoscope in After Effects - Reference Video"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                    </iframe>
+                        data-video-id="-Y_WnKK7KwU">
+                    </div>
                 </div>
                 <div class="video-panel-controls">
                     <button class="video-control-btn" onclick="toggleMute('yt-reference')">🔊 Mute</button>
@@ -78,13 +75,10 @@
             <div class="video-side-panel">
                 <h3 class="video-panel-title">🎬 Final Output</h3>
                 <div class="video-embed-container">
-                    <iframe 
+                    <div 
                         id="yt-final"
-                        src="https://www.youtube.com/embed/XmUGV_KWy_4" 
-                        title="Final Rotoscope Output"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                    </iframe>
+                        data-video-id="XmUGV_KWy_4">
+                    </div>
                 </div>
                 <div class="video-panel-controls">
                     <button class="video-control-btn" onclick="toggleMute('yt-final')">🔊 Mute</button>
@@ -409,33 +403,89 @@
 
     <script src="script.js"></script>
     <script>
-        function toggleMute(iframeId) {
-            const iframe = document.getElementById(iframeId);
-            const currentSrc = iframe.src;
-            
-            if (currentSrc.includes('mute=1')) {
-                iframe.src = currentSrc.replace('mute=1', 'mute=0');
-            } else if (currentSrc.includes('mute=0')) {
-                iframe.src = currentSrc.replace('mute=0', 'mute=1');
-            } else {
-                iframe.src = currentSrc + (currentSrc.includes('?') ? '&' : '?') + 'mute=1';
+        // Load YouTube IFrame API
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var refPlayer, finalPlayer;
+
+        function onYouTubeIframeAPIReady() {
+            const refVideoId = document.getElementById('yt-reference').getAttribute('data-video-id');
+            const finalVideoId = document.getElementById('yt-final').getAttribute('data-video-id');
+
+            refPlayer = new YT.Player('yt-reference', {
+                videoId: refVideoId,
+                playerVars: {
+                    'playsinline': 1,
+                    'rel': 0
+                },
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+
+            finalPlayer = new YT.Player('yt-final', {
+                videoId: finalVideoId,
+                playerVars: {
+                    'playsinline': 1,
+                    'rel': 0
+                },
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            // Players are ready
+        }
+
+        function toggleMute(playerId) {
+            if (playerId === 'yt-reference' && refPlayer) {
+                if (refPlayer.isMuted()) {
+                    refPlayer.unMute();
+                } else {
+                    refPlayer.mute();
+                }
+            } else if (playerId === 'yt-final' && finalPlayer) {
+                if (finalPlayer.isMuted()) {
+                    finalPlayer.unMute();
+                } else {
+                    finalPlayer.mute();
+                }
             }
         }
 
         function syncAllVideos() {
-            const refIframe = document.getElementById('yt-reference');
-            const finalIframe = document.getElementById('yt-final');
+            if (!refPlayer || !finalPlayer) {
+                alert('Videos are still loading. Please wait a moment and try again.');
+                return;
+            }
+
+            // Get current time from reference video
+            const currentTime = refPlayer.getCurrentTime();
             
-            // Extract video IDs from src
-            const refSrc = refIframe.src;
-            const finalSrc = finalIframe.src;
+            // Seek final video to same time
+            finalPlayer.seekTo(currentTime, true);
             
-            // Get reference video current time using postMessage
-            refIframe.contentWindow.postMessage('{"event":"command","func":"getCurrentTime","args":""}', '*');
+            // Get play state of reference video
+            const refState = refPlayer.getPlayerState();
             
-            // Since we can't directly get the time back, we'll use a simpler approach
-            // Alert user to manually sync since YouTube embeds have restrictions
-            alert('Due to YouTube embed restrictions, please manually sync the videos:\n\n1. Note the timestamp on the Reference video\n2. Click on the Final Output video\n3. Seek to the same timestamp\n4. Play both videos simultaneously');
+            // Sync play/pause state
+            if (refState === YT.PlayerState.PLAYING) {
+                finalPlayer.playVideo();
+            } else if (refState === YT.PlayerState.PAUSED) {
+                finalPlayer.pauseVideo();
+            }
+
+            // Visual feedback
+            const syncBtn = document.querySelector('.sync-btn-large');
+            syncBtn.textContent = '✓ Synced!';
+            setTimeout(() => {
+                syncBtn.textContent = '🔄 Sync All';
+            }, 1500);
         }
 
         // Carousel functions
