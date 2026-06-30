@@ -57,21 +57,17 @@
                 <h3 class="video-panel-title">📚 Reference Video</h3>
                 <div class="video-embed-container">
                     <iframe 
-                        id="yt-reference"
-                        src="https://www.youtube.com/embed/-Y_WnKK7KwU?enablejsapi=1&rel=0" 
+                        src="https://www.youtube.com/embed/-Y_WnKK7KwU?rel=0" 
                         title="How to Rotoscope in After Effects - Reference Video"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen>
                     </iframe>
                 </div>
-                <div class="video-panel-controls">
-                    <button class="video-control-btn" onclick="toggleMute('yt-reference')">🔊 Mute</button>
-                </div>
             </div>
 
             <!-- Sync Controls (Middle) -->
             <div class="sync-controls-middle">
-                <button class="sync-btn-large" onclick="syncAllVideos()">🔄 Sync All</button>
+                <button class="sync-btn-large" onclick="alert('To sync videos manually:\n1. Note the timestamp on the Reference video\n2. Click on the Final Output video\n3. Seek to the same timestamp\n4. Play both videos simultaneously')">🔄 Sync All</button>
             </div>
 
             <!-- Final Output -->
@@ -79,15 +75,11 @@
                 <h3 class="video-panel-title">🎬 Final Output</h3>
                 <div class="video-embed-container">
                     <iframe 
-                        id="yt-final"
-                        src="https://www.youtube.com/embed/XmUGV_KWy_4?enablejsapi=1&rel=0" 
+                        src="https://www.youtube.com/embed/XmUGV_KWy_4?rel=0" 
                         title="Final Rotoscope Output"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen>
                     </iframe>
-                </div>
-                <div class="video-panel-controls">
-                    <button class="video-control-btn" onclick="toggleMute('yt-final')">🔊 Mute</button>
                 </div>
             </div>
         </div>
@@ -409,78 +401,6 @@
 
     <script src="script.js"></script>
     <script>
-        // Load YouTube IFrame API
-        var tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-        var refPlayer, finalPlayer;
-
-        function onYouTubeIframeAPIReady() {
-            refPlayer = new YT.Player('yt-reference', {
-                events: {
-                    'onReady': onPlayerReady
-                }
-            });
-
-            finalPlayer = new YT.Player('yt-final', {
-                events: {
-                    'onReady': onPlayerReady
-                }
-            });
-        }
-
-        function onPlayerReady(event) {
-            // Players are ready
-        }
-
-        function toggleMute(playerId) {
-            if (playerId === 'yt-reference' && refPlayer) {
-                if (refPlayer.isMuted()) {
-                    refPlayer.unMute();
-                } else {
-                    refPlayer.mute();
-                }
-            } else if (playerId === 'yt-final' && finalPlayer) {
-                if (finalPlayer.isMuted()) {
-                    finalPlayer.unMute();
-                } else {
-                    finalPlayer.mute();
-                }
-            }
-        }
-
-        function syncAllVideos() {
-            if (!refPlayer || !finalPlayer) {
-                alert('Videos are still loading. Please wait a moment and try again.');
-                return;
-            }
-
-            // Get current time from reference video
-            const currentTime = refPlayer.getCurrentTime();
-            
-            // Seek final video to same time
-            finalPlayer.seekTo(currentTime, true);
-            
-            // Get play state of reference video
-            const refState = refPlayer.getPlayerState();
-            
-            // Sync play/pause state
-            if (refState === YT.PlayerState.PLAYING) {
-                finalPlayer.playVideo();
-            } else if (refState === YT.PlayerState.PAUSED) {
-                finalPlayer.pauseVideo();
-            }
-
-            // Visual feedback
-            const syncBtn = document.querySelector('.sync-btn-large');
-            syncBtn.textContent = '✓ Synced!';
-            setTimeout(() => {
-                syncBtn.textContent = '🔄 Sync All';
-            }, 1500);
-        }
-
         // Carousel functions
         let currentSlide = 0;
         const slides = document.querySelectorAll('.carousel-slide');
