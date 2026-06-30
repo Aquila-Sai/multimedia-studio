@@ -56,10 +56,13 @@
             <div class="video-side-panel">
                 <h3 class="video-panel-title">📚 Reference Video</h3>
                 <div class="video-embed-container">
-                    <div 
+                    <iframe 
                         id="yt-reference"
-                        data-video-id="-Y_WnKK7KwU">
-                    </div>
+                        src="https://www.youtube.com/embed/-Y_WnKK7KwU?enablejsapi=1&rel=0" 
+                        title="How to Rotoscope in After Effects - Reference Video"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
                 </div>
                 <div class="video-panel-controls">
                     <button class="video-control-btn" onclick="toggleMute('yt-reference')">🔊 Mute</button>
@@ -75,10 +78,13 @@
             <div class="video-side-panel">
                 <h3 class="video-panel-title">🎬 Final Output</h3>
                 <div class="video-embed-container">
-                    <div 
+                    <iframe 
                         id="yt-final"
-                        data-video-id="XmUGV_KWy_4">
-                    </div>
+                        src="https://www.youtube.com/embed/XmUGV_KWy_4?enablejsapi=1&rel=0" 
+                        title="Final Rotoscope Output"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
                 </div>
                 <div class="video-panel-controls">
                     <button class="video-control-btn" onclick="toggleMute('yt-final')">🔊 Mute</button>
@@ -412,26 +418,13 @@
         var refPlayer, finalPlayer;
 
         function onYouTubeIframeAPIReady() {
-            const refVideoId = document.getElementById('yt-reference').getAttribute('data-video-id');
-            const finalVideoId = document.getElementById('yt-final').getAttribute('data-video-id');
-
             refPlayer = new YT.Player('yt-reference', {
-                videoId: refVideoId,
-                playerVars: {
-                    'playsinline': 1,
-                    'rel': 0
-                },
                 events: {
                     'onReady': onPlayerReady
                 }
             });
 
             finalPlayer = new YT.Player('yt-final', {
-                videoId: finalVideoId,
-                playerVars: {
-                    'playsinline': 1,
-                    'rel': 0
-                },
                 events: {
                     'onReady': onPlayerReady
                 }
